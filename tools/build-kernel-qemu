@@ -10,9 +10,9 @@ COMMIT=423c680bd722670f4b39ea79089859df02b411b6
 #sudo apt-get update
 sudo apt-get install git libncurses5-dev gcc-arm-linux-gnueabihf
 #git clone https://github.com/raspberrypi/linux.git
-wget -c https://github.com/raspberrypi/linux/archive/${COMMIT}.zip -O linux-${COMMIT}.zip
+test -f linux-${COMMIT}.tar.gz || wget -c https://github.com/raspberrypi/linux/archive/${COMMIT}.tar.gz -O linux-${COMMIT}.tar.gz
 rm -rf linux-${COMMIT}
-unzip linux-${COMMIT}.zip
+tar xvzf linux-${COMMIT}.tar.gz
 cd linux-${COMMIT}
 # checking out 4.1.7+ branch - change it if you want to change kernel version
 # for kernel specific hash, have a looks at : https://github.com/raspberrypi/linux/commits/rpi-4.1.y
